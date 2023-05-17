@@ -8,11 +8,11 @@ int dscount(string str, char s1, char s2) {
     bool foundS1 = false;
 
     for (int i = 0; i < str.length() - 1; i++) {
-        char currentChar = tolower(str[i]); //опускаем все регистры с вернего на нижний
+        char currentChar = tolower(str[i]); // drop all registers from upper to lower
         char nextChar = tolower(str[i + 1]);
 
         if (currentChar == s1) {
-            if (nextChar == s2 && !foundS1) { //прибавляем к счетку +1, если нашли совпадение по строке s1s2
+            if (nextChar == s2 && !foundS1) { // add +1 to the score if you find a match in the string s1s2
                 count++;
                 foundS1 = true;
             }
@@ -26,61 +26,61 @@ int dscount(string str, char s1, char s2) {
 }
 
 int main() {
-    // Тесты
+    // Tests
     string input = "ab___ab__";
     char s1 = 'a';
     char s2 = 'b';
 
-    // Ответ: 4
+    // Answer: 4
     cout << dscount(input, s1, s2) << std::endl;
 
     input = "___cd____";
     s1 = 'c';
     s2 = 'd';
 
-    // Ответ: 3
+    // Answer: 3
     cout << dscount(input, s1, s2) << std::endl;
 
     input = "de_______";
     s1 = 'd';
     s2 = 'e';
 
-    // Ответ: 2
+    // Answer: 2
     cout << dscount(input, s1, s2) << std::endl;
 
     input = "_ba______";
     s1 = 'a';
     s2 = 'd';
 
-    // Ответ: 0
+    // Answer: 0
     std::cout << dscount(input, s1, s2) << std::endl;
 
     input = "aAa";
     s1 = 'a';
     s2 = 'a';
 
-    //Ответ: 2
+    // Answer: 2
     std::cout << dscount(input, s1, s2) << std::endl;
 
-    input = "-ab-аb-ab";
+    input = "-ab-Г b-ab";
     s1 = 'a';
     s2 = 'b';
 
-    //Ответ: 2
+    // Answer: 2
     std::cout << dscount(input, s1, s2) << std::endl;
 
     input = "12_12__12";
     s1 = '1';
     s2 = '2';
 
-    //Ответ: 3
+    // Answer: 3
     std::cout << dscount(input, s1, s2) << std::endl;
 
     input = "_a__b____";
     s1 = 'a';
     s2 = 'b';
 
-    //Ответ: 0
+    // Answer: 0
     std::cout << dscount(input, s1, s2) << std::endl;
 
     return 0;
